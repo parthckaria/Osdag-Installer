@@ -2,7 +2,7 @@
 !define APP_VERSION "2025.01.0.2"
 !define APP_PUBLISHER "Osdag Team IIT Bombay"
 
-OutFile "Osdag-v${APP_VERSION}-win_test.exe"
+OutFile "Osdag-v${APP_VERSION}-win.exe"
 Name "${APP_NAME}"
 VIProductVersion "${APP_VERSION}"
 VIAddVersionKey "ProductName" "${APP_NAME}"
@@ -83,13 +83,13 @@ Section "Osdag" SEC_Main
     WriteUninstaller "$INSTDIR\Osdag\Uninstall.exe"
 
     ; Registry keys
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "DisplayName" "${APP_NAME}"
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "Publisher" "${APP_PUBLISHER}"
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "DisplayVersion" "${APP_VERSION}"
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "UninstallString" "$INSTDIR\Osdag\Uninstall.exe"
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "InstallLocation" "$INSTDIR\Osdag"
-    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "NoModify" 1
-    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" "NoRepair" 1
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "DisplayName" "${APP_NAME}"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "Publisher" "${APP_PUBLISHER}"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "DisplayVersion" "${APP_VERSION}"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "UninstallString" "$INSTDIR\Osdag\Uninstall.exe"
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "InstallLocation" "$INSTDIR\Osdag"
+    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "NoModify" 1
+    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag" "NoRepair" 1
 
 SectionEnd
 
@@ -134,13 +134,13 @@ FunctionEnd
 
 Section "Uninstall"
 
-    RMDir /r $INSTDIR
-    
+    RMDir /r "$INSTDIR"
+   
     Delete "$DESKTOP\Osdag.lnk"
     Delete "$SMPROGRAMS\Osdag\Osdag.lnk"
     Delete "$SMPROGRAMS\Osdag\Uninstall.lnk"
     RMDir /r "$SMPROGRAMS\Osdag"
 
-    DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}"
+    DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\Osdag"
 
 SectionEnd
