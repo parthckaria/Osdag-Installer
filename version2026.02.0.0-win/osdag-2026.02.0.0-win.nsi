@@ -72,8 +72,8 @@ Section "Osdag" SEC_Main
     SectionIn RO    
     SetOutPath "$INSTDIR\Osdag"
 
-    ; copy files to install\Osdag folder
-    ; File /r "C:\Users\1hasa\WebDEV\Osdag\.pixi"
+    copy files to install\Osdag folder
+    File /r "..\osdag-pixi\.pixi"
     File /r "..\osdag-pixi\icons"
     File "..\license.txt"
     File "..\run.bat"
