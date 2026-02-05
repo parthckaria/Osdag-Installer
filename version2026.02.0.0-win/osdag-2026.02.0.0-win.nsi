@@ -72,7 +72,7 @@ Section "Osdag" SEC_Main
     SectionIn RO    
     SetOutPath "$INSTDIR\Osdag"
 
-    copy files to install\Osdag folder
+    ; copy files to install\Osdag folder
     File /r "..\osdag-pixi\.pixi"
     File /r "..\osdag-pixi\icons"
     File "..\license.txt"
@@ -95,16 +95,6 @@ Section "Osdag" SEC_Main
 
 SectionEnd
 
-; ; optional plugins installattion
-; Section "PluginA" SEC_PluginA   
-;     SetOutPath "$INSTDIR\Osdag\.pixi\envs\default\Lib\site-packages\osdag\plugins"
-;     File /r "..\pluginA"
-; SectionEnd
-
-; Section "PluginB" SEC_PluginB   
-;     SetOutPath "$INSTDIR\Osdag\.pixi\envs\default\Lib\site-packages\osdag\plugins"
-;     File /r "..\pluginB"
-; SectionEnd
 
 ; optional
 Section "Startmenu Shortcut" SEC_SM_Shortcuts
